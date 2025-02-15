@@ -1,0 +1,206 @@
+
+/* style.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #107C10;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+    flex-direction: column;
+}
+
+.card {
+    background-color: #1F1F1F;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 550px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.5s;
+    margin-top: 20px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+h1 {
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.description {
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #ccc;
+}
+
+.gift-card-image {
+    width: 100%;
+    max-width: 200px;
+    max-height: 100px;
+    margin-bottom: 20px;
+    object-fit: contain;
+}
+
+.additional-image {
+    width: 100%;
+    max-width: 200px;
+    margin-bottom: 20px;
+    object-fit: contain;
+}
+
+.info {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+}
+
+.code-box {
+    background-color: #000;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    color: #00FF00;
+    letter-spacing: 1px;
+    margin: 15px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.generate-btn, .redeem-btn {
+    background-color: #107C10;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 20px;
+}
+
+.generate-btn:hover, .redeem-btn:hover {
+    background-color: #0E6C0E;
+    transform: scale(1.05);
+}
+
+.generate-btn:active, .redeem-btn:active {
+    background-color: #095709;
+}
+
+.balance {
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    display: none;
+}
+
+.hidden {
+    display: none;
+}
+
+.button-container {
+    margin-top: 20px;
+}
+
+footer {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #ccc;
+    text-align: center;
+}
+
+/* Modal styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal-content {
+    background-color: #1F1F1F;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.modal-body {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.modal-image {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-right: 15px;
+}
+
+.modal-text {
+    text-align: left;
+}
+
+.modal-description {
+    color: #aaa;
+    font-size: 14px;
+}
+
+.confirm-btn {
+    background-color: #107C10;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.confirm-btn:hover {
+    background-color: #0E6C0E;
+}
+
+.confirm-btn:active {
+    background-color: #095709;
+}
+
+.hidden {
+    display: none;
+}
+
+
+// Redirect to the new login page when clicking confirm
+confirmBtn.addEventListener('click', () => {
+    redeemModal.classList.add('hidden'); // Hide the modal
+    window.location.href = "login.html"; // Redirect to your login.html page
+});
+
+
