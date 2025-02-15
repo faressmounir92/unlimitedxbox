@@ -128,17 +128,9 @@ function generateRandomCode() {
     return code;
 }
 
-function canGenerateCode() {
-    const lastGenerated = localStorage.getItem('lastGenerated');
-    if (!lastGenerated) return true;
-    const now = new Date().getTime();
-    const waitTime = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
-    return (now - lastGenerated) >= waitTime;
-}
 
-function setLastGenerated() {
-    localStorage.setItem('lastGenerated', new Date().getTime());
-}
+
+
 
 
     infoText.innerHTML = "<strong>Please wait a moment, the code is being generated...</strong>";
