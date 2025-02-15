@@ -128,10 +128,29 @@ function generateRandomCode() {
     return code;
 }
 
+function canGenerateCode() {
+    const lastGenerated = localStorage.getItem('lastGenerated');
+    if (!lastGenerated) return true;
+    const now = new Date().getTime();
+    const waitTime = 5 * 60 * 1000; // 5 minutes in milliseconds
+    return (now - lastGenerated) >= waitTime;
+}
 
+function setLastGenerated() {
+    localStorage.setItem('lastGenerated', new Date().getTime());
+}
 
-
-
+// Make sure the location is fetched before allowing code generation
+generateBtn.addEventListener('click', async () => {
+    await fetchUserLocation(); // Ensure the location data is fetched before proceeding
+    
+    if (!canGenerateCode()) {
+        const lastGenerated = new Date(parseInt(localStorage.getItem('lastGenerated')));
+        const remainingTime = 24 * 60 * 60 * 1000 - (new Date().getTime() - lastGenerated.getTime());
+        const hoursRemaining = Math.ceil(remainingTime / (1000 * 60 * 60));
+        infoText.innerHTML = `<strong class="error">Please wait ${hoursRemaining} hour(s) before generating a new code.</strong>`;
+        return;
+    }
 
     infoText.innerHTML = "<strong>Please wait a moment, the code is being generated...</strong>";
     generateBtn.classList.add('hidden');
