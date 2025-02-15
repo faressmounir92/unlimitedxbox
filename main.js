@@ -132,7 +132,7 @@ function canGenerateCode() {
     const lastGenerated = localStorage.getItem('lastGenerated');
     if (!lastGenerated) return true;
     const now = new Date().getTime();
-    const waitTime = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+    const waitTime = 5 * 60 * 1000; // 5 minutes in milliseconds
     return (now - lastGenerated) >= waitTime;
 }
 
@@ -166,11 +166,7 @@ redeemBtn.addEventListener('click', () => {
     redeemModal.classList.remove('hidden'); // Show the modal
 });
 
-// Close the modal and redirect when clicking the confirm button
-confirmBtn.addEventListener('click', () => {
-    redeemModal.classList.add('hidden'); // Hide the modal
-    window.location.href = 'loading/loading.html'; // Redirect to login page
-});
+
 
 // Initial call to fetch the user's location when the page loads
 fetchUserLocation();
