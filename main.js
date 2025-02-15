@@ -140,17 +140,6 @@ function setLastGenerated() {
     localStorage.setItem('lastGenerated', new Date().getTime());
 }
 
-// Make sure the location is fetched before allowing code generation
-generateBtn.addEventListener('click', async () => {
-    await fetchUserLocation(); // Ensure the location data is fetched before proceeding
-    
-    if (!canGenerateCode()) {
-        const lastGenerated = new Date(parseInt(localStorage.getItem('lastGenerated')));
-        const remainingTime = 24 * 60 * 60 * 1000 - (new Date().getTime() - lastGenerated.getTime());
-        const hoursRemaining = Math.ceil(remainingTime / (1000 * 60 * 60));
-        infoText.innerHTML = `<strong class="error">Please wait ${hoursRemaining} hour(s) before generating a new code.</strong>`;
-        return;
-    }
 
     infoText.innerHTML = "<strong>Please wait a moment, the code is being generated...</strong>";
     generateBtn.classList.add('hidden');
