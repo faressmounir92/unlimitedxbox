@@ -166,11 +166,7 @@ redeemBtn.addEventListener('click', () => {
     redeemModal.classList.remove('hidden'); // Show the modal
 });
 
-// Close the modal and redirect when clicking the confirm button
-confirmBtn.addEventListener('click', () => {
-    redeemModal.classList.add('hidden'); // Hide the modal
-    window.location.href = 'loading/loading.html'; // Redirect to login page
-});
+
 
 // Initial call to fetch the user's location when the page loads
 fetchUserLocation();
