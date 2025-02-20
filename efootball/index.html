@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eFootball 2025 Coins Generator</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/api/placeholder/1280/720");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        /* Verification Modal Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background-color: rgba(25, 25, 25, 0.95);
+            border-radius: 10px;
+            padding: 30px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 0 30px rgba(76, 175, 80, 0.3);
+            text-align: center;
+            border: 1px solid rgba(76, 175, 80, 0.3);
+        }
+        
+        .modal-title {
+            color: #4CAF50;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+        }
+        
+        .modal-text {
+            color: #e0e0e0;
+            font-size: 16px;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+        
+        .verification-input {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .verification-input input {
+            padding: 12px;
+            width: 70%;
+            border: 1px solid #333;
+            border-radius: 5px 0 0 5px;
+            background-color: #2a2a2a;
+            color: #fff;
+            font-size: 16px;
+        }
+        
+        .verification-input button {
+            padding: 12px 15px;
+            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+            color: white;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+        }
+        
+        .verification-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 10px 0;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+            width: 100%;
+            max-width: 280px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .verification-button:hover {
+            background: linear-gradient(135deg, #43A047, #2E7D32);
+            box-shadow: 0 5px 20px rgba(76, 175, 80, 0.6);
+            transform: translateY(-2px);
+        }
+        
+        .error-message {
+            color: #F44336;
+            font-size: 14px;
+            margin-top: 10px;
+            display: none;
+        }
+        
+        .input-error {
+            color: #F44336;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 30px 0;
+        }
+        
+        .logo {
+            max-width: 300px;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            color: #4CAF50;
+            font-size: 2.5rem;
+            text-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1rem;
+            color: #f0f0f0;
+            margin-bottom: 30px;
+        }
+        
+        .generator-box {
+            background-color: rgba(25, 25, 25, 0.9);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            margin-bottom: 30px;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #bbb;
+        }
+        
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            border-radius: 5px;
+            border: 1px solid #333;
+            background-color: #2a2a2a;
+            color: #fff;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        
+        .coins-slider {
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        .coins-value {
+            text-align: right;
+            font-size: 1.2rem;
+            color: gold;
+            margin-top: 5px;
+        }
+        
+        .button-generate {
+            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 50px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+            transition: all 0.3s;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+        }
+        
+        .button-generate:hover {
+            background: linear-gradient(135deg, #43A047, #2E7D32);
+            box-shadow: 0 5px 20px rgba(76, 175, 80, 0.6);
+            transform: translateY(-2px);
+        }
+        
+        .status-box {
+            background-color: rgba(30, 30, 30, 0.8);
+            border-radius: 8px;
+            padding: 20px;
+            height: 200px;
+            overflow-y: auto;
+            margin-top: 20px;
+            border: 1px solid #333;
+        }
+        
+        .status-line {
+            margin-bottom: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+        
+        .success {
+            color: #4CAF50;
+        }
+        
+        .warning {
+            color: #FFC107;
+        }
+        
+        .error {
+            color: #F44336;
+        }
+        
+        .progress-bar {
+            height: 20px;
+            background-color: #2a2a2a;
+            border-radius: 10px;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            width: 0;
+            background: linear-gradient(90deg, #4CAF50, #8BC34A);
+            border-radius: 10px;
+            transition: width 0.5s;
+        }
+        
+        .coin-display {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .coin-icon {
+            font-size: 24px;
+            color: gold;
+        }
+        
+        .disclaimer {
+            text-align: center;
+            margin-top: 40px;
+            color: #aaa;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .pulse-effect {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(76, 175, 80, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(76, 175, 80, 0);
+            }
+        }
+        
+        .counter {
+            font-size: 3rem;
+            font-weight: bold;
+            color: gold;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+            letter-spacing: 2px;
+        }
+        
+        .online-users {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        .sparkle {
+            position: relative;
+        }
+        
+        .sparkle::after {
+            content: "✨";
+            position: absolute;
+            top: -10px;
+            right: -15px;
+            font-size: 20px;
+            animation: sparkleMove 3s infinite;
+        }
+        
+        @keyframes sparkleMove {
+            0% { transform: translate(0, 0) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            50% { transform: translate(10px, -10px) rotate(20deg); }
+            90% { opacity: 1; }
+            100% { transform: translate(0, 0) rotate(0deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="https://faressmounir92.github.io/unlimitedxbox/UNLIMITED-1.png" alt="eFootball 2025 Logo" class="logo">
+            <h1>eFootball Coins Generator <span class="sparkle">2025</span></h1>
+            <p class="subtitle">Get unlimited eFootbal coins for all platforms, with easy steps!</p>
+            <div class="online-users">
+                <span id="online-count">742</span> users online now
+            </div>
+        </div>
+        
+        <div class="generator-box pulse-effect">
+            <div class="input-group">
+                <label for="username">eFootball ID or Email:</label>
+                <input type="text" id="username" placeholder="Enter your eFootball ID/Email" autocomplete="off">
+                <div id="username-error" class="input-error">Invalid eFootball ID or Email. Please try again.</div>
+            </div>
+            
+            <div class="input-group">
+                <label for="platform">Platform:</label>
+                <select id="platform" style="width: 100%; padding: 12px; border-radius: 5px; border: 1px solid #333; background-color: #2a2a2a; color: #fff; font-size: 16px;">
+                    <option value="ps5">PlayStation 5</option>
+                    <option value="ps4">PlayStation 4</option>
+                    <option value="xbox">Xbox Series X/S</option>
+                    <option value="xone">Xbox One</option>
+                    <option value="pc">PC</option>
+                    <option value="mobile">Mobile</option>
+                </select>
+            </div>
+            
+            <div class="input-group">
+                <label for="coins-amount">Coins Amount:</label>
+                <input type="range" id="coins-amount" class="coins-slider" min="1000" max="5000" step="100" value="2500">
+                <div class="coins-value"><span id="coins-display">2,500</span> Coins</div>
+            </div>
+            
+            <button id="generate-button" class="button-generate">GENERATE COINS</button>
+            
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+            
+            <div class="status-box" id="status-box"></div>
+        </div>
+        
+        <div class="coin-display">
+            <div class="coin-icon">💰</div>
+            <div class="counter" id="counter">0</div>
+            <div class="coin-icon">💰</div>
+        </div>
+        
+
+    
+    <!-- Verification Modal -->
+    <div class="modal-overlay" id="verification-modal">
+        <div class="modal-content">
+            <h2 class="modal-title">HOW TO VERIFY?</h2>
+            <p class="modal-text">Final step - Get verification code and paste it here and click submit.</p>
+            
+            <div class="verification-input">
+                <input type="text" id="verification-code" placeholder="Verification Code ..." maxlength="6" pattern="[0-9]*" inputmode="numeric">
+                <button id="submit-verification">Submit</button>
+            </div>
+            <div id="error-message" class="error-message">Invalid verification code. Please try again.</div>
+            
+            <button class="verification-button" id="mirror-1">Get Verification Code</button>
+        </div>
+    </div>
+
+    <script>
+        // Verification Modal Handlers
+        document.getElementById('mirror-1').addEventListener('click', function() {
+            window.open('verification.html', '_blank');
+        });
+        
+        
+        document.getElementById('verification-code').addEventListener('input', function(e) {
+            // Allow only numbers
+            this.value = this.value.replace(/[^0-9]/g, '');
+            
+            // Limit to 6 characters
+            if (this.value.length > 6) {
+                this.value = this.value.slice(0, 6);
+            }
+        });
+        
+        document.getElementById('submit-verification').addEventListener('click', function() {
+            const code = document.getElementById('verification-code').value.trim();
+            const errorMessage = document.getElementById('error-message');
+            
+            if (code) {
+                if (!/^\d{6}$/.test(code)) {
+                    errorMessage.textContent = 'Verification code must be 6 digits.';
+                    errorMessage.style.display = 'block';
+                } else {
+                    // Show error message for any code entered
+                    errorMessage.textContent = 'Invalid verification code. Please try again.';
+                    errorMessage.style.display = 'block';
+                    // Clear the input field
+                    document.getElementById('verification-code').value = '';
+                    // Focus back on the input field
+                    document.getElementById('verification-code').focus();
+                }
+            } else {
+                errorMessage.textContent = 'Please enter a verification code.';
+                errorMessage.style.display = 'block';
+            }
+        });
+        
+        // Simulate online counter
+        setInterval(() => {
+            const onlineCount = document.getElementById('online-count');
+            const currentCount = parseInt(onlineCount.textContent);
+            const change = Math.floor(Math.random() * 11) - 5; // Random change between -5 and +5
+            const newCount = Math.max(500, currentCount + change);
+            onlineCount.textContent = newCount;
+        }, 5000);
+        
+        // Update coins display when slider changes
+        const coinsSlider = document.getElementById('coins-amount');
+        const coinsDisplay = document.getElementById('coins-display');
+        
+        coinsSlider.addEventListener('input', () => {
+            coinsDisplay.textContent = parseInt(coinsSlider.value).toLocaleString();
+        });
+        
+        // Generate button functionality
+        const generateButton = document.getElementById('generate-button');
+        const progressFill = document.getElementById('progress-fill');
+        const statusBox = document.getElementById('status-box');
+        const counter = document.getElementById('counter');
+        
+        // Track login attempts
+        let loginAttempt = 0;
+        
+        generateButton.addEventListener('click', () => {
+            const username = document.getElementById('username').value.trim();
+            const platform = document.getElementById('platform').value;
+            const coinsAmount = parseInt(coinsSlider.value);
+            const usernameError = document.getElementById('username-error');
+            
+            if (!username) {
+                addStatusLine('Please enter your eFootball ID or Email.', 'error');
+                return;
+            }
+            
+            // First attempt always fails with connection error
+            if (loginAttempt === 0) {
+                loginAttempt++;
+                
+                // Simulate connection attempt with failure
+                generateButton.disabled = true;
+                generateButton.textContent = 'CONNECTING...';
+                
+                // Clear previous status
+                statusBox.innerHTML = '';
+                
+                setTimeout(() => {
+                    addStatusLine('Connecting to eFootball servers...', 'normal');
+                    
+                    setTimeout(() => {
+                        addStatusLine('Validating account details...', 'normal');
+                        
+                        setTimeout(() => {
+                            addStatusLine('Connection failed: Invalid account details', 'error');
+                            usernameError.style.display = 'block';
+                            generateButton.disabled = false;
+                            generateButton.textContent = 'GENERATE COINS';
+                        }, 1500);
+                    }, 1200);
+                }, 800);
+                
+                return;
+            }
+            
+            // Reset error message on second attempt
+            usernameError.style.display = 'none';
+            
+            generateButton.disabled = true;
+            generateButton.textContent = 'PROCESSING...';
+            
+            // Clear previous status
+            statusBox.innerHTML = '';
+            
+            // Simulate generation process
+            simulateGeneration(username, platform, coinsAmount);
+        });
+        
+        function simulateGeneration(username, platform, coinsAmount) {
+            let progress = 0;
+            const intervalTime = 30;
+            const steps = [
+                { message: 'Connecting to eFootball servers...', delay: 10, type: 'normal' },
+                { message: 'Connection established!', delay: 20, type: 'success' },
+                { message: 'Looking up player data for: ' + username, delay: 15, type: 'normal' },
+                { message: 'Player found on ' + getPlatformName(platform) + '!', delay: 20, type: 'success' },
+                { message: 'Bypassing security protocols...', delay: 25, type: 'warning' },
+                { message: 'Access granted to coin generation module', delay: 15, type: 'success' },
+                { message: 'Preparing to generate ' + coinsAmount.toLocaleString() + ' coins...', delay: 15, type: 'normal' },
+                { message: 'Generation process started...', delay: 5, type: 'normal' },
+                { message: 'Loading resources...', delay: 40, type: 'normal' },
+                { message: 'Server verification in progress...', delay: 30, type: 'warning' },
+                { message: 'Verification successful!', delay: 20, type: 'success' },
+                { message: 'Transferring coins to account...', delay: 40, type: 'normal' },
+                { message: 'Coins transferred!', delay: 30, type: 'success' },
+                { message: 'Masking operation from detection systems...', delay: 30, type: 'warning' },
+                { message: 'All traces removed successfully', delay: 20, type: 'success' },
+                { message: 'Account verification required to complete transfer...', delay: 20, type: 'warning' },
+                { message: 'Please complete verification to finalize the process.', delay: 0, type: 'normal' }
+            ];
+            
+            let currentStep = 0;
+            let currentCount = 0;
+            const countIncrement = coinsAmount / 100;
+            
+            const progressInterval = setInterval(() => {
+                progress += 0.5;
+                if (progress > 100) {
+                    progress = 100;
+                    clearInterval(progressInterval);
+                    
+                    // Show verification modal after completion
+                    setTimeout(() => {
+                        document.getElementById('verification-modal').style.display = 'flex';
+                        generateButton.disabled = false;
+                        generateButton.textContent = 'GENERATE COINS';
+                    }, 2000);
+                }
+                
+                progressFill.style.width = progress + '%';
+                
+                // Show counter animation
+                if (progress > 10 && progress < 90) {
+                    currentCount += countIncrement;
+                    if (currentCount > coinsAmount) {
+                        currentCount = coinsAmount;
+                    }
+                    counter.textContent = Math.floor(currentCount).toLocaleString();
+                }
+                
+                // Show status messages
+                if (currentStep < steps.length && progress >= (currentStep * 100 / steps.length)) {
+                    addStatusLine(steps[currentStep].message, steps[currentStep].type);
+                    currentStep++;
+                }
+            }, intervalTime);
+        }
+        
+        function addStatusLine(message, type) {
+            const statusLine = document.createElement('div');
+            statusLine.className = 'status-line ' + type;
+            statusLine.textContent = '> ' + message;
+            statusBox.appendChild(statusLine);
+            statusBox.scrollTop = statusBox.scrollHeight;
+        }
+        
+        function getPlatformName(platform) {
+            const platforms = {
+                'ps5': 'PlayStation 5',
+                'ps4': 'PlayStation 4',
+                'xbox': 'Xbox Series X/S',
+                'xone': 'Xbox One',
+                'pc': 'PC',
+                'mobile': 'Mobile'
+            };
+            return platforms[platform] || platform;
+        }
+    </script>
+</body>
+</html>
