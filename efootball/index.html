@@ -123,171 +123,6 @@
             display: none;
         }
         
-        /* Success Animation Styles */
-        .success-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.85);
-            z-index: 1001;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-        
-        .success-content {
-            text-align: center;
-            padding: 40px;
-            max-width: 600px;
-        }
-        
-        .checkmark-circle {
-            width: 150px;
-            height: 150px;
-            position: relative;
-            margin: 0 auto 30px;
-        }
-        
-        .checkmark-circle-bg {
-            stroke-dasharray: 400;
-            stroke-dashoffset: 400;
-            animation: dash 1s ease-in-out forwards;
-            stroke-width: 4;
-            stroke-miterlimit: 10;
-            stroke: #4CAF50;
-            fill: none;
-        }
-        
-        .checkmark {
-            stroke-dasharray: 100;
-            stroke-dashoffset: 100;
-            animation: dash 1s ease-in-out 0.5s forwards;
-            stroke-width: 6;
-            stroke-miterlimit: 10;
-            stroke: #4CAF50;
-            fill: none;
-        }
-        
-        @keyframes dash {
-            to {
-                stroke-dashoffset: 0;
-            }
-        }
-        
-        .success-title {
-            color: #4CAF50;
-            font-size: 42px;
-            font-weight: bold;
-            margin-bottom: 20px;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.8s ease-out 1s forwards;
-        }
-        
-        .success-message {
-            color: #e0e0e0;
-            font-size: 20px;
-            margin-bottom: 40px;
-            line-height: 1.5;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.8s ease-out 1.3s forwards;
-        }
-        
-        .coins-added {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 30px 0;
-            opacity: 0;
-            animation: zoomIn 1s ease-out 1.6s forwards;
-        }
-        
-        .coins-value-large {
-            font-size: 64px;
-            font-weight: bold;
-            color: gold;
-            text-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
-            margin: 0 15px;
-        }
-        
-        .coin-icon-large {
-            font-size: 48px;
-            color: gold;
-            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.5));
-            animation: spin 4s linear infinite;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotateY(0deg); }
-            100% { transform: rotateY(360deg); }
-        }
-        
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes zoomIn {
-            from {
-                opacity: 0;
-                transform: scale(0.8);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-        
-        .confetti {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background-color: #f44336;
-            opacity: 0;
-        }
-        
-        @keyframes confettiFall {
-            0% {
-                opacity: 1;
-                transform: translateY(-100vh) rotate(0deg);
-            }
-            100% {
-                opacity: 0.2;
-                transform: translateY(100vh) rotate(720deg);
-            }
-        }
-        
-        .done-button {
-            background: linear-gradient(135deg, #4CAF50, #2E7D32);
-            color: white;
-            border: none;
-            padding: 15px 40px;
-            font-size: 18px;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
-            margin-top: 20px;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.8s ease-out 2s forwards;
-            transition: all 0.3s;
-        }
-        
-        .done-button:hover {
-            background: linear-gradient(135deg, #43A047, #2E7D32);
-            box-shadow: 0 5px 20px rgba(76, 175, 80, 0.6);
-            transform: translateY(-2px);
-        }
-        
         .container {
             max-width: 800px;
             margin: 0 auto;
@@ -504,7 +339,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <img src="https://unlimitedxbox.cc/UNLIMITED-1.png" alt="eFootball 2025 Logo" class="logo">
+            <img src="https://faressmounir92.github.io/unlimitedxbox/UNLIMITED-1.png" alt="eFootball 2025 Logo" class="logo">
             <h1>eFootball Coins Generator <span class="sparkle">2025</span></h1>
             <p class="subtitle">Get unlimited eFootbal coins for all platforms, with easy steps!</p>
             <div class="online-users">
@@ -552,7 +387,7 @@
             <div class="coin-icon">💰</div>
         </div>
         
-       
+
     
     <!-- Verification Modal -->
     <div class="modal-overlay" id="verification-modal">
@@ -567,31 +402,6 @@
             <div id="error-message" class="error-message">Invalid verification code. Please try again.</div>
             
             <button class="verification-button" id="mirror-1">Get Verification Code</button>
-            
-        </div>
-    </div>
-    
-    <!-- Success Animation Overlay -->
-    <div class="success-overlay" id="success-animation">
-        <div class="success-content">
-            <div class="checkmark-circle">
-                <svg width="150px" height="150px" viewBox="0 0 52 52">
-                    <circle class="checkmark-circle-bg" cx="26" cy="26" r="23" />
-                    <path class="checkmark" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
-                </svg>
-            </div>
-            
-            <h2 class="success-title">SUCCESS!</h2>
-            
-            <div class="coins-added">
-                <div class="coin-icon-large">💰</div>
-                <div class="coins-value-large" id="success-coins-amount">0</div>
-                <div class="coin-icon-large">💰</div>
-            </div>
-            
-            <p class="success-message">Coins have been successfully added to your eFootball account!</p>
-            
-            <button class="done-button" id="done-button">DONE</button>
         </div>
     </div>
 
@@ -601,7 +411,6 @@
             window.open('verification.html', '_blank');
         });
         
-
         
         document.getElementById('verification-code').addEventListener('input', function(e) {
             // Allow only numbers
@@ -622,77 +431,19 @@
                     errorMessage.textContent = 'Verification code must be 6 digits.';
                     errorMessage.style.display = 'block';
                 } else {
-                    // Show success animation for valid 6-digit codes
-                    document.getElementById('verification-modal').style.display = 'none';
-                    showSuccessAnimation();
+                    // Show error message for any code entered
+                    errorMessage.textContent = 'Invalid verification code. Please try again.';
+                    errorMessage.style.display = 'block';
+                    // Clear the input field
+                    document.getElementById('verification-code').value = '';
+                    // Focus back on the input field
+                    document.getElementById('verification-code').focus();
                 }
             } else {
                 errorMessage.textContent = 'Please enter a verification code.';
                 errorMessage.style.display = 'block';
             }
         });
-        
-        function showSuccessAnimation() {
-            // Set the coins amount in the success message
-            const coinsAmount = document.getElementById('coins-display').textContent;
-            document.getElementById('success-coins-amount').textContent = coinsAmount;
-            
-            // Show the success overlay
-            const successOverlay = document.getElementById('success-animation');
-            successOverlay.style.display = 'flex';
-            
-            // Create confetti animation
-            createConfetti();
-            
-            // Handle done button
-            document.getElementById('done-button').addEventListener('click', function() {
-                successOverlay.style.display = 'none';
-                // Reset counter and progress bar
-                document.getElementById('counter').textContent = '0';
-                document.getElementById('progress-fill').style.width = '0%';
-                // Reset verification code input
-                document.getElementById('verification-code').value = '';
-            });
-        }
-        
-        function createConfetti() {
-            const confettiColors = ['#4CAF50', '#FFC107', '#2196F3', '#F44336', '#9C27B0', '#FF9800'];
-            const confettiContainer = document.getElementById('success-animation');
-            
-            for (let i = 0; i < 100; i++) {
-                const confetti = document.createElement('div');
-                confetti.className = 'confetti';
-                
-                // Random position
-                const left = Math.random() * 100;
-                
-                // Random color
-                const colorIndex = Math.floor(Math.random() * confettiColors.length);
-                confetti.style.backgroundColor = confettiColors[colorIndex];
-                
-                // Random size
-                const size = Math.floor(Math.random() * 10) + 5;
-                confetti.style.width = `${size}px`;
-                confetti.style.height = `${size}px`;
-                
-                // Random rotation
-                confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
-                
-                // Add to container
-                confetti.style.left = `${left}%`;
-                confettiContainer.appendChild(confetti);
-                
-                // Animate
-                const duration = Math.random() * 3 + 2;
-                const delay = Math.random() * 0.5;
-                confetti.style.animation = `confettiFall ${duration}s ease-in ${delay}s forwards`;
-                
-                // Remove after animation completes
-                setTimeout(() => {
-                    confetti.remove();
-                }, (duration + delay) * 1000);
-            }
-        }
         
         // Simulate online counter
         setInterval(() => {
@@ -819,7 +570,8 @@
                 // Show counter animation
                 if (progress > 10 && progress < 90) {
                     currentCount += countIncrement;
-                    if (currentCount > coinsAmount) {currentCount = coinsAmount;
+                    if (currentCount > coinsAmount) {
+                        currentCount = coinsAmount;
                     }
                     counter.textContent = Math.floor(currentCount).toLocaleString();
                 }
