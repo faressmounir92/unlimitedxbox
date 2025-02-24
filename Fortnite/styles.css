@@ -1,0 +1,643 @@
+/* Base styles */
+body {
+    font-family: 'Burbank Big Condensed', 'Arial Black', sans-serif;
+    background-color: #1a1a1a;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Mobile-first container */
+.container {
+    width: 100%;
+    max-width: 100%;
+    padding: 20px;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 90%;
+        max-width: 800px;
+        margin: 40px auto;
+    }
+}
+
+/* Header and title styles */
+h1 {
+    color: #ffff00;
+    font-size: 4rem;
+    text-transform: uppercase;
+    text-shadow: 0 0 20px rgba(255, 255, 0, 0.5),
+                 3px 3px 0 #9d4dff;
+    margin: 20px 0;
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.online-users {
+    color: #9d4dff;
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}
+
+/* Generator box styles */
+.generator-box {
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
+    padding: 20px;
+    border: 2px solid #9d4dff;
+    text-align: left;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .generator-box {
+        padding: 30px;
+        width: 90%;
+    }
+}
+
+.input-group {
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+input[type="text"],
+select {
+    width: 100%;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 2px solid #9d4dff;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 16px;
+}
+
+/* Progress Bar Container Styles */
+.progress-container {
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+    font-family: 'Courier New', monospace;
+}
+
+.progress-header {
+    color: #00ff00;
+    font-size: 18px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.progress-bar {
+    position: relative;
+    height: 30px;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: linear-gradient(90deg, #006400, #00ff00);
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+.progress-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    box-shadow: 0 0 10px #00ff00;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.progress-text {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+    line-height: 30px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+/* Console Output Styles */
+.console-output {
+    background: #000;
+    border: 1px solid #333;
+    border-radius: 4px;
+    padding: 15px;
+    margin-top: 15px;
+    font-family: 'Courier New', monospace;
+    height: 200px;
+    overflow-y: auto;
+}
+
+.console-line {
+    color: #00ff00;
+    margin: 5px 0;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.console-line.error { color: #ff0000; }
+.console-line.warning { color: #ffff00; }
+.console-line.success { color: #00ff00; }
+
+/* V-Bucks slider styles */
+.vbucks-slider {
+    width: 100%;
+    margin: 20px 0;
+    -webkit-appearance: none;
+    height: 10px;
+    border-radius: 5px;
+    background: #2a2a2a;
+    outline: none;
+    border: 2px solid #9d4dff;
+}
+
+.vbucks-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #ffff00;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(255, 255, 0, 0.5);
+}
+
+.vbucks-value {
+    text-align: center;
+    font-size: 2rem;
+    color: #ffff00;
+    margin: 20px 0;
+    text-shadow: 2px 2px 0 #9d4dff;
+}
+
+/* Button styles */
+.button-generate {
+    width: 100%;
+    padding: 20px;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #000;
+    background: linear-gradient(135deg, #0099ff, #0066cc);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 20px;
+    letter-spacing: 2px;
+    box-shadow: 0 0 20px rgba(0, 153, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.button-generate:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba(0, 153, 255, 0.5);
+}
+
+.button-generate.generating {
+    background: linear-gradient(135deg, #ffff00, #ffd700);
+    box-shadow: 0 0 20px rgba(255, 255, 0, 0.3);
+}
+
+.button-generate.generating:hover {
+    box-shadow: 0 0 30px rgba(255, 255, 0, 0.5);
+}
+
+/* Status box styles */
+.status-box {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 2px solid #9d4dff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+    height: 200px;
+    overflow-y: auto;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+}
+
+.status-line {
+    margin-bottom: 8px;
+    color: #00ff00;
+}
+
+.status-line.error { color: #ff5050; }
+.status-line.warning { color: #ffff00; }
+.status-line.success { color: #00ff00; }
+
+/* Loading overlay styles */
+.loading-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #333;
+    border-top: 5px solid #ffff00;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* Epic Login Modal styles */
+.epic-login-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(18, 18, 18, 0.9);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.epic-login-content {
+    background-color: rgb(18, 18, 18);
+    padding: 2rem;
+    width: 90%;
+    max-width: 470px;
+    color: #fff;
+    text-align: center;
+}
+
+.epic-login-header {
+    margin-bottom: 2rem;
+}
+
+.epic-login-title {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.epic-form-group {
+    margin-bottom: 1.5rem;
+}
+
+.epic-form-group label {
+    color: rgba(255, 255, 255, 0.87);
+    font-size: 0.875rem;
+    display: block;
+    margin-bottom: 0.5rem;
+    text-transform: none;
+}
+
+.epic-form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: rgb(32, 32, 32);
+    border: 1px solid rgb(48, 48, 48);
+    border-radius: 4px;
+    font-size: 1rem;
+    color: #fff;
+    transition: border-color 0.2s;
+}
+
+.epic-form-group input:focus {
+    outline: none;
+    border-color: rgb(0, 116, 228);
+}
+
+/* Epic Login Button styles */
+.epic-login-button {
+    width: 50%;
+    padding: 0.75rem;
+    background-color: rgb(84, 84, 84);
+    color: rgba(255, 255, 255, 0.3);
+    border: none;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: not-allowed;
+    margin: 1.5rem auto 0;
+    transition: all 0.2s;
+    position: relative;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.epic-login-button.active {
+    background-color: rgb(0, 156, 255);
+    color: #fff;
+    cursor: pointer;
+}
+
+.epic-login-button.active:hover {
+    background-color: rgb(0, 144, 237);
+}
+
+.epic-login-button .button-text {
+    transition: opacity 0.2s;
+}
+
+.epic-login-button .loading-spinner {
+    display: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.epic-login-button.loading {
+    background-color: rgb(0, 156, 255) !important;
+    cursor: default !important;
+}
+
+.epic-login-button.loading .button-text {
+    opacity: 0;
+}
+
+.epic-login-button.loading .loading-spinner {
+    display: block;
+}
+
+/* Epic Login Links styles */
+.epic-login-links {
+    margin-top: 1rem;
+    font-size: 0.875rem;
+}
+
+.epic-login-links a {
+    color: rgb(0, 116, 228);
+    text-decoration: none;
+    margin: 0 0.5rem;
+}
+
+.epic-login-links a:hover {
+    text-decoration: underline;
+}
+
+/* Connecting button spinner */
+.connecting-state {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.button-spinner {
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top: 3px solid #ffffff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* Verification Modal styles */
+.verification-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.verification-content {
+    background-color: rgba(0, 0, 0, 0.9);
+    border: 2px solid #9d4dff;
+    border-radius: 12px;
+    padding: 2rem;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(157, 77, 255, 0.3);
+}
+
+.verification-title {
+    color: #00ff00;
+    font-size: 28px;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.verification-text {
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    font-size: 16px;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+.verification-input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+}
+
+#verification-code {
+    flex: 1;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 2px solid #9d4dff;
+    padding: 12px;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 18px;
+    letter-spacing: 3px;
+    text-align: center;
+}
+
+.verification-submit {
+    background: linear-gradient(135deg, #00ff00, #00cc00);
+    color: #000000;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.verification-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+    background: linear-gradient(135deg, #00ff00, #00dd00);
+}
+
+.get-verification-button {
+    background: linear-gradient(135deg, #00ff00, #00cc00);
+    color: #000000;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    letter-spacing: 1px;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.get-verification-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px rgba(0, 255, 0, 0.5);
+    background: linear-gradient(135deg, #00ff00, #00dd00);
+}
+
+#verification-code:focus {
+    outline: none;
+    border-color: #00ff00;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+}
+
+#verification-code::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* Mobile optimized font sizes */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2.5rem;
+        margin: 10px 0;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+
+    .online-users {
+        font-size: 1rem;
+        margin-bottom: 25px;
+    }
+
+    label {
+        font-size: 1rem;
+    }
+
+    input[type="text"],
+    select {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .vbucks-value {
+        font-size: 1.5rem;
+    }
+
+    .button-generate {
+        padding: 15px;
+        font-size: 1.2rem;
+    }
+
+    .verification-modal .verification-content {
+        padding: 1.5rem;
+    }
+
+    .verification-title {
+        font-size: 20px;
+    }
+
+    .verification-input-group {
+        flex-direction: column;
+    }
+
+    .verification-submit {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .get-verification-button {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+
+    .epic-login-content {
+        padding: 1.5rem;
+    }
+
+    .epic-login-button {
+        width: 100%;
+    }
+}
+
+/* Touch-friendly input elements */
+@media (max-width: 480px) {
+    .vbucks-slider::-webkit-slider-thumb {
+        width: 30px;
+        height: 30px;
+    }
+
+    input[type="text"],
+    select,
+    button {
+        min-height: 44px;
+    }
+}
+
+/* Animation keyframes */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
