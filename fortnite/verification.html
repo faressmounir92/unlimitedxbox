@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fortnite V-Bucks Verification</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #9d4dff;
+            --secondary-color: #00ff00;
+            --accent-color: #ffff00;
+            --background-dark: #1a1a1a;
+            --background-darker: #121212;
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.87);
+            --glow-primary: rgba(157, 77, 255, 0.3);
+            --transition-speed: 0.3s;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+            background-image: 
+                linear-gradient(45deg, rgba(157, 77, 255, 0.1) 0%, transparent 70%),
+                linear-gradient(-45deg, rgba(0, 255, 0, 0.1) 0%, transparent 70%);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .title {
+            font-size: 2.8rem;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            text-shadow: 
+                0 0 20px rgba(255, 255, 0, 0.5),
+                3px 3px 0 var(--primary-color);
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+        }
+
+        .secure-note {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(157, 77, 255, 0.1);
+            border: 1px solid var(--primary-color);
+            border-radius: 50px;
+            padding: 8px 20px;
+            font-size: 0.9rem;
+            margin: 0 auto;
+        }
+
+        .verification-box {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 20px;
+            padding: 40px;
+            border: 2px solid var(--primary-color);
+            box-shadow: 0 0 30px var(--glow-primary);
+            backdrop-filter: blur(10px);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            animation: pulseGlow 3s infinite;
+        }
+
+        .verification-title {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+            text-transform: uppercase;
+        }
+
+        .verification-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 3px;
+        }
+
+        .code-container {
+            position: relative;
+            margin: 30px 0;
+        }
+
+        .code-display {
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid var(--primary-color);
+            border-radius: 15px;
+            padding: 25px;
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: 10px;
+            color: var(--text-primary);
+            margin-bottom: 25px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .code-display::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to right, 
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.1) 50%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            transform: rotate(45deg);
+            animation: shimmer 3s infinite;
+        }
+
+        .copy-button {
+            background: linear-gradient(135deg, var(--primary-color), #7b2ff7);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s;
+            margin: 0 auto;
+            box-shadow: 0 5px 15px rgba(157, 77, 255, 0.3);
+        }
+
+        .copy-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(157, 77, 255, 0.5);
+        }
+
+        .copy-button:active {
+            transform: translateY(0);
+        }
+
+        .copy-status {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: rgba(157, 77, 255, 0.9);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+        }
+
+        .copy-status.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timer-section {
+            margin: 40px 0 20px;
+            text-align: center;
+        }
+
+        .timer-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .timer-clock {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            min-width: 80px;
+        }
+
+        .timer-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .timer-bar {
+            height: 8px;
+            background: rgba(157, 77, 255, 0.2);
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 0 auto;
+            max-width: 400px;
+        }
+
+        .timer-fill {
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            border-radius: 4px;
+            transition: width 1s linear;
+        }
+
+        .info-text {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 30px 0 20px;
+            text-align: center;
+            max-width: 600px;
+            margin: 30px auto;
+        }
+
+        .security-badges {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 25px;
+            border: 1px solid var(--primary-color);
+            font-size: 0.9rem;
+        }
+
+        .badge i {
+            color: var(--primary-color);
+        }
+
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+
+        .additional-info {
+            margin-top: 40px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid rgba(157, 77, 255, 0.3);
+        }
+
+        .additional-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .additional-info ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .additional-info li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .additional-info li::before {
+            content: '•';
+            color: var(--primary-color);
+            position: absolute;
+            left: 10px;
+        }
+
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 30px var(--glow-primary); }
+            50% { box-shadow: 0 0 50px var(--glow-primary); }
+            100% { box-shadow: 0 0 30px var(--glow-primary); }
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .title {
+                font-size: 2rem;
+            }
+
+            .verification-box {
+                padding: 30px 20px;
+            }
+
+            .code-display {
+                font-size: 2.5rem;
+                letter-spacing: 6px;
+            }
+
+            .security-badges {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .title {
+                font-size: 1.8rem;
+            }
+
+            .code-display {
+                font-size: 2rem;
+                letter-spacing: 5px;
+            }
+
+            .badge {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">V-Bucks Verification</h1>
+            <p class="subtitle">Complete verification to receive your V-Bucks</p>
+            <div class="secure-note">
+                <i class="fas fa-shield-alt"></i>
+                <span>Secure Verification Process</span>
+            </div>
+        </div>
+        
+        <div class="verification-box">
+            <h2 class="verification-title">Your Verification Code</h2>
+            
+            <div class="code-container">
+                <div class="code-display" id="verification-code">------</div>
+                
+                <button class="copy-button" id="copy-button">
+                    <i class="fas fa-copy"></i>
+                    <span>Copy Code</span>
+                </button>
+                
+                <div class="copy-status" id="copy-status">Code copied to clipboard!</div>
+            </div>
+            
+            <div class="timer-section">
+                <div class="timer-container">
+                    <div class="timer-clock">
+                        <span id="minutes">5</span>:<span id="seconds">00</span>
+                    </div>
+                    <div class="timer-label">until code expires</div>
+                </div>
+                
+                <div class="timer-bar">
+                    <div class="timer-fill" id="timer-fill"></div>
+                </div>
+            </div>
+            
+            <p class="info-text">
+                Enter this verification code in the generator to complete the V-Bucks transfer process. 
+                This code will automatically refresh every 5 minutes for security purposes.
+            </p>
+            
+            <div class="security-badges">
+                <div class="badge">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Secure Connection</span>
+                </div>
+                <div class="badge">
+                    <i class="fas fa-lock"></i>
+                    <span>Encrypted</span>
+                </div>
+                <div class="badge">
+                    <i class="fas fa-user-shield"></i>
+                    <span>Anonymous</span>
+                </div>
+            </div>
+            
+            <div class="additional-info">
+                <h3>Important Information</h3>
+                <ul>
+                    <li>Make sure to copy and enter the verification code within the time limit</li>
+                    <li>Do not refresh this page as it will generate a new code</li>
+                    <li>This verification step ensures the security of your account</li>
+                    <li>If the code expires, a new one will be automatically generated</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>© 2025 Fortnite V-Bucks Generator</p>
+        </div>
+    </div>
+    
+    <script>
+        // Generate random 6-digit code
+        function generateVerificationCode() {
+            let code = '';
+            for (let i = 0; i < 6; i++) {
+                code += Math.floor(Math.random() * 10);
+            }
+            return code;
+        }
+        
+        // Update code display with animation
+        function updateCode() {
+            const codeDisplay = document.getElementById('verification-code');
+            
+            // First blank out the current code
+            codeDisplay.textContent = '------';
+            
+            // Then set new code after a short delay
+            setTimeout(() => {
+                const newCode = generateVerificationCode();
+                codeDisplay.textContent = newCode;
+                resetTimer();
+            }, 500);
+        }
+        
+        // Copy code to clipboard
+        document.getElementById('copy-button').addEventListener('click', function() {
+            const code = document.getElementById('verification-code').textContent;
+            
+            if (code === '------') return;
+            
+            navigator.clipboard.writeText(code).then(() => {
+                const copyStatus = document.getElementById('copy-status');
+                copyStatus.classList.add('show');
+                
+                setTimeout(() => {
+                    copyStatus.classList.remove('show');
+                }, 2000);
+            });
+        });
+        
+        // Timer functionality
+        let totalSeconds = 300; // 5 minutes
+        let timerInterval;
+        
+        function resetTimer() {
+            clearInterval(timerInterval);
+            totalSeconds = 300;
+            updateTimerDisplay();
+            document.getElementById('timer-fill').style.width = '100%';
+            
+            timerInterval = setInterval(() => {
+                totalSeconds--;
+                updateTimerDisplay();
+                
+                // Update progress bar
+                const percentLeft = (totalSeconds / 300) * 100;
+                document.getElementById('timer-fill').style.width = percentLeft + '%';
+                
+                if (totalSeconds <= 0) {
+                    clearInterval(timerInterval);
+                    updateCode();
+                }
+            }, 1000);
+        }
+        
+        function updateTimerDisplay() {
+            const minutes = Math.floor(totalSeconds / 60);
+            const seconds = totalSeconds % 60;
+            
+            document.getElementById('minutes').textContent = minutes;
+            document.getElementById('seconds').textContent = seconds < 10 ? '0' + seconds : seconds;
+        }
+        
+        // Initialize page
+        window.addEventListener('load', () => {
+            updateCode();
+        });
+    </script>
+</body>
+</html>
