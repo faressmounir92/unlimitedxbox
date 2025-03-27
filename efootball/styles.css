@@ -1406,3 +1406,189 @@ body {
     margin-bottom: 6px;
     filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.4));
 }
+
+
+/* Styles for the verification step */
+.konami-verification-step {
+    margin-bottom: 30px;
+    background: rgba(0, 12, 92, 0.3);
+    border-radius: 15px;
+    padding: 20px;
+    border: 1px solid var(--primary-color);
+}
+
+.konami-verification-step h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.verification-info {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.verification-icon {
+    flex: 0 0 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 237, 0, 0.1);
+    border-radius: 50%;
+    border: 2px solid var(--primary-color);
+}
+
+.verification-icon i {
+    font-size: 30px;
+    color: var(--primary-color);
+}
+
+.verification-instructions {
+    flex: 1;
+}
+
+.verification-instructions p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+}
+
+.verification-steps {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.step-number {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary-color);
+    color: var(--background-dark);
+    font-weight: bold;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.step-text {
+    color: var(--text-primary);
+}
+
+.konami-login-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: var(--primary-color);
+    color: var(--background-dark);
+    text-decoration: none;
+    padding: 15px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all var(--transition-speed);
+    margin: 20px 0;
+}
+
+.konami-login-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(255, 237, 0, 0.3);
+}
+
+.verification-checkbox-container {
+    margin-top: 15px;
+}
+
+.verification-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    position: relative;
+    padding-left: 35px;
+    user-select: none;
+}
+
+.verification-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
+}
+
+.verification-checkbox:hover input ~ .checkmark {
+    background-color: rgba(255, 237, 0, 0.1);
+}
+
+.verification-checkbox input:checked ~ .checkmark {
+    background-color: var(--primary-color);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.verification-checkbox input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.verification-checkbox .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid var(--background-dark);
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+.checkbox-text {
+    color: var(--text-secondary);
+}
+
+/* Make Generate Coins button disabled initially */
+.button-generate.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    .verification-info {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .verification-icon {
+        margin-bottom: 15px;
+    }
+}
